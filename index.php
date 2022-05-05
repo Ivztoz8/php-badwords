@@ -4,7 +4,7 @@ He remained on visiting terms with his relatives (except, of course, the Sackvil
 But he had no close friends, until some of his younger cousins began to grow up.';
 
 $censored = isset($_GET['censored']) ? $_GET['censored'] : '';
-$censored_par = str_replace($censored, '***', $paragrafo);
+$censoredPar = str_ireplace($censored, '***', $paragrafo);
 
 ?>
 
@@ -24,10 +24,10 @@ $censored_par = str_replace($censored, '***', $paragrafo);
         <button>Censor</button>
     </form>
     <p> 
-        <?php echo $paragrafo;?>
+        <?php echo isset($_GET['censored']) ? $censoredPar : $paragrafo ;?>
     </p>
     <p>La lunghezza del paragrafo è: <?php echo strlen($paragrafo); ?></p>
-    <p>La lunghezza del paragrafo censurato è: <?php echo strlen($censored_par); ?></p>
+    <p>La lunghezza del paragrafo censurato è: <?php echo strlen($censoredPar); ?></p>
     <p>La parola censurata è: <?php echo $censored; ?></p>
 </body>
 </html>
